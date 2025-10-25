@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buteaqetk6prs"
+path="res://.godot/imported/kxn - project 2 (main menu).mp3-e5db99c16dfc8c9b979d02dbc7439637.mp3str"
+
+[deps]
+
+source_file="res://audio/kxn - project 2 (main menu).mp3"
+dest_files=["res://.godot/imported/kxn - project 2 (main menu).mp3-e5db99c16dfc8c9b979d02dbc7439637.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

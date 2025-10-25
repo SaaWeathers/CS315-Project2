@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://difpngymngsv"]
+[gd_scene load_steps=4 format=3 uid="uid://difpngymngsv"]
 
 [ext_resource type="Script" uid="uid://w1c0fjvjkncn" path="res://scripts/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://hyfpcatvypnn" path="res://assets/main menu bg 2.png" id="2_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://buteaqetk6prs" path="res://audio/kxn - project 2 (main menu).mp3" id="3_bqqt6"]
 
-[node name="Main Menu" type="Node2D"]
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_06t4h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[node name="Main Menu BG" type="Sprite2D" parent="."]
+position = Vector2(576, 275)
+scale = Vector2(10.5903, 10.5903)
+texture = ExtResource("2_ekxnf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 349.0
+offset_right = 552.0
+offset_bottom = 415.0
+scale = Vector2(3.15235, 2.67235)
+metadata/_edit_group_ = true
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Main Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bqqt6")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
