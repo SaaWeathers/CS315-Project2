@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://duesjq32icvbe"]
+
+[ext_resource type="Script" uid="uid://m06t2yl8ewm8" path="res://scenes/character_body_2d.gd" id="1_014kd"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_014kd")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
