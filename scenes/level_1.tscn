@@ -1,11 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=7 format=3 uid="uid://duesjq32icvbe"]
 
+[ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://floor_tile_set.tres" id="1_5xbjy"]
 [ext_resource type="Script" uid="uid://m06t2yl8ewm8" path="res://scenes/character_body_2d.gd" id="1_014kd"]
+[ext_resource type="PackedScene" uid="uid://cnxnpupkb4d5n" path="res://scenes/cat_bed.tscn" id="2_4nkto"]
+[ext_resource type="SpriteFrames" uid="uid://cqoe6r2p78phe" path="res://new_sprite_frames.tres" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://d4j5dsh3gixxx" path="res://scenes/food.tscn" id="5_fcfvj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nkto"]
+size = Vector2(20, 21)
 
 [node name="Level 1" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_014kd")
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.110776, 0.573527, 5.58317e-06, 1)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_top = -648.0
+offset_right = 1152.0
+color = Color(0.110776, 0.573527, 5.58317e-06, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -1152.0
+offset_top = -648.0
+color = Color(0.110776, 0.573527, 5.58317e-06, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = -1152.0
+offset_bottom = 648.0
+color = Color(0.110776, 0.573527, 5.58317e-06, 1)
+
+[node name="FirstLayerOfWorld" type="TileMap" parent="."]
+tile_set = ExtResource("1_5xbjy")
+format = 2
+layer_0/name = "Floors"
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 131073, 0, 1, 196609, 0, 1, 262145, 0, 2, 327681, 0, 3, 393217, 0, 3, 458753, 0, 3, 524289, 0, 5, 589825, 0, 8, 589826, 262144, 8, 589827, 262144, 8, 589828, 262144, 8, 589829, 262144, 8, 589830, 262144, 8, 589831, 262144, 8, 131074, 851968, 5, 131075, 917504, 5, 131076, 917504, 5, 131077, 917504, 5, 131078, 917504, 5, 131079, 917504, 5, 196610, 851968, 6, 262146, 851968, 6, 327682, 851968, 6, 393218, 851968, 6, 458754, 851968, 6, 524290, 851968, 7, 524291, 917504, 7, 524292, 917504, 7, 524293, 917504, 7, 524294, 917504, 7, 524295, 917504, 7, 458755, 917504, 6, 458756, 917504, 6, 458757, 917504, 6, 458758, 917504, 6, 393219, 917504, 6, 393220, 917504, 6, 393221, 917504, 6, 393222, 917504, 6, 327683, 917504, 6, 327684, 917504, 6, 327685, 917504, 6, 327686, 917504, 6, 262147, 917504, 6, 262148, 917504, 6, 262149, 917504, 6, 262150, 917504, 6, 196611, 917504, 6, 196612, 917504, 6, 196613, 983040, 6, 196614, 917504, 6, 196615, 917504, 6, 262151, 917504, 6, 327687, 917504, 6, 393223, 917504, 6, 458759, 917504, 6, 65544, 1114112, 0, 131080, 1114112, 1, 196616, 1114112, 1, 393224, 1114112, 2, 458760, 1114112, 2, 524296, 1114112, 2)
+
+[node name="CatBed" parent="." instance=ExtResource("2_4nkto")]
+position = Vector2(68, 81)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(70, 79)
+script = ExtResource("1_014kd")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_4nkto")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = ExtResource("4_5xbjy")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.0432494
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+
+[node name="Food" parent="." instance=ExtResource("5_fcfvj")]
+position = Vector2(52, 47)
+
+[node name="Furniture" type="TileMap" parent="."]
 format = 2
