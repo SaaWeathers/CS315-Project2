@@ -1,15 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=6 format=3 uid="uid://duesjq32icvbe"]
 
+[ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scenes/level_1.gd" id="1_4nkto"]
 [ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://floor_tile_set.tres" id="1_5xbjy"]
-[ext_resource type="Script" uid="uid://m06t2yl8ewm8" path="res://scenes/character_body_2d.gd" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://cnxnpupkb4d5n" path="res://scenes/cat_bed.tscn" id="2_4nkto"]
-[ext_resource type="SpriteFrames" uid="uid://cqoe6r2p78phe" path="res://new_sprite_frames.tres" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://braufjr4jhw2s" path="res://scenes/player.tscn" id="4_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://d4j5dsh3gixxx" path="res://scenes/food.tscn" id="5_fcfvj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nkto"]
-size = Vector2(20, 21)
-
 [node name="Level 1" type="Node2D"]
+script = ExtResource("1_4nkto")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -40,26 +38,32 @@ layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 65536, 0, 65539, 65536,
 [node name="CatBed" parent="." instance=ExtResource("2_4nkto")]
 position = Vector2(68, 81)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("4_fcfvj")]
 position = Vector2(70, 79)
-script = ExtResource("1_014kd")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_4nkto")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-sprite_frames = ExtResource("4_5xbjy")
-animation = &"walk"
-autoplay = "idle"
-frame_progress = 0.0432494
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(4, 4)
 
 [node name="Food" parent="." instance=ExtResource("5_fcfvj")]
 position = Vector2(52, 47)
 
 [node name="Furniture" type="TileMap" parent="."]
 format = 2
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = -71.0
+offset_right = -8.0
+offset_bottom = 27.0
+scale = Vector2(1.5148, 0.452517)
+max_value = 3.0
+value = 3.0
+
+[node name="Food2" parent="." instance=ExtResource("5_fcfvj")]
+position = Vector2(118, 18)
+
+[node name="Food3" parent="." instance=ExtResource("5_fcfvj")]
+position = Vector2(217, 80)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://braufjr4jhw2s"]
+
+[ext_resource type="Script" uid="uid://m06t2yl8ewm8" path="res://scenes/character_body_2d.gd" id="1_g2els"]
+[ext_resource type="SpriteFrames" uid="uid://cqoe6r2p78phe" path="res://new_sprite_frames.tres" id="2_qhqgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nkto"]
+size = Vector2(20, 21)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_4nkto")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_qhqgy")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.1565
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
