@@ -1,33 +1,64 @@
-[gd_scene load_steps=6 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=16 format=3 uid="uid://duesjq32icvbe"]
 
-[ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scenes/level_1.gd" id="1_4nkto"]
+[ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scripts/level_1.gd" id="1_4nkto"]
 [ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://floor_tile_set.tres" id="1_5xbjy"]
-[ext_resource type="PackedScene" uid="uid://cnxnpupkb4d5n" path="res://scenes/cat_bed.tscn" id="2_4nkto"]
-[ext_resource type="PackedScene" uid="uid://braufjr4jhw2s" path="res://scenes/player.tscn" id="4_fcfvj"]
-[ext_resource type="PackedScene" uid="uid://d4j5dsh3gixxx" path="res://scenes/food.tscn" id="5_fcfvj"]
+[ext_resource type="Texture2D" uid="uid://bqw8e22a7poys" path="res://assets/Plant1.png" id="2_e3sih"]
+[ext_resource type="Texture2D" uid="uid://b5mi5jjttpf8p" path="res://assets/CatBedBlue.png" id="3_pa8r4"]
+[ext_resource type="Script" uid="uid://b64hml12qf8t7" path="res://scripts/character_body_2d.gd" id="5_pa8r4"]
+[ext_resource type="SpriteFrames" uid="uid://cqoe6r2p78phe" path="res://new_sprite_frames.tres" id="6_15mv3"]
+[ext_resource type="Texture2D" uid="uid://bt4tj5vtrkxp5" path="res://assets/food.png" id="6_fcfvj"]
+[ext_resource type="Script" uid="uid://5rjvvhjv226u" path="res://scripts/food.gd" id="6_pa8r4"]
+[ext_resource type="Script" uid="uid://cueq6f1o60ft" path="res://scripts/ui.gd" id="8_15mv3"]
+[ext_resource type="Texture2D" uid="uid://b8jvmdjxj585y" path="res://assets/pixil-layer-0.png" id="10_go7sj"]
+[ext_resource type="Texture2D" uid="uid://bntsr52thor4c" path="res://assets/pixil-layer-2.png" id="11_7gny6"]
+[ext_resource type="Texture2D" uid="uid://bnyeyeurgnghu" path="res://assets/pixil-layer-1.png" id="12_2aecg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcfvj"]
+size = Vector2(50, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3sih"]
+size = Vector2(17, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
+size = Vector2(20, 13)
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_4nkto")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BackGround" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="BackGround"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.110776, 0.573527, 5.58317e-06, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="BackGround"]
+layout_mode = 0
 offset_top = -648.0
 offset_right = 1152.0
 color = Color(0.110776, 0.573527, 5.58317e-06, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="ColorRect3" type="ColorRect" parent="BackGround"]
+layout_mode = 0
 offset_left = -1152.0
 offset_top = -648.0
 color = Color(0.110776, 0.573527, 5.58317e-06, 1)
 
-[node name="ColorRect4" type="ColorRect" parent="."]
+[node name="ColorRect4" type="ColorRect" parent="BackGround"]
+layout_mode = 0
 offset_left = -1152.0
 offset_bottom = 648.0
 color = Color(0.110776, 0.573527, 5.58317e-06, 1)
+
+[node name="Plant1" type="Sprite2D" parent="."]
+position = Vector2(260, -14)
+scale = Vector2(3, 3)
+texture = ExtResource("2_e3sih")
 
 [node name="FirstLayerOfWorld" type="TileMap" parent="."]
 tile_set = ExtResource("1_5xbjy")
@@ -35,35 +66,70 @@ format = 2
 layer_0/name = "Floors"
 layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 131073, 0, 1, 196609, 0, 1, 262145, 0, 2, 327681, 0, 3, 393217, 0, 3, 458753, 0, 3, 524289, 0, 5, 589825, 0, 8, 589826, 262144, 8, 589827, 262144, 8, 589828, 262144, 8, 589829, 262144, 8, 589830, 262144, 8, 589831, 262144, 8, 131074, 851968, 5, 131075, 917504, 5, 131076, 917504, 5, 131077, 917504, 5, 131078, 917504, 5, 131079, 917504, 5, 196610, 851968, 6, 262146, 851968, 6, 327682, 851968, 6, 393218, 851968, 6, 458754, 851968, 6, 524290, 851968, 7, 524291, 917504, 7, 524292, 917504, 7, 524293, 917504, 7, 524294, 917504, 7, 524295, 917504, 7, 458755, 917504, 6, 458756, 917504, 6, 458757, 917504, 6, 458758, 917504, 6, 393219, 917504, 6, 393220, 917504, 6, 393221, 917504, 6, 393222, 917504, 6, 327683, 917504, 6, 327684, 917504, 6, 327685, 917504, 6, 327686, 917504, 6, 262147, 917504, 6, 262148, 917504, 6, 262149, 917504, 6, 262150, 917504, 6, 196611, 917504, 6, 196612, 917504, 6, 196613, 983040, 6, 196614, 917504, 6, 196615, 917504, 6, 262151, 917504, 6, 327687, 917504, 6, 393223, 917504, 6, 458759, 917504, 6, 65544, 1114112, 0, 131080, 1114112, 1, 196616, 1114112, 1, 393224, 1114112, 2, 458760, 1114112, 2, 524296, 1114112, 2)
 
-[node name="CatBed" parent="." instance=ExtResource("2_4nkto")]
-position = Vector2(68, 81)
-
-[node name="Player" parent="." instance=ExtResource("4_fcfvj")]
-position = Vector2(70, 79)
-
-[node name="Food" parent="." instance=ExtResource("5_fcfvj")]
-position = Vector2(52, 47)
-
 [node name="Furniture" type="TileMap" parent="."]
 format = 2
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CatBed" type="Area2D" parent="."]
+visible = false
+position = Vector2(67, 75)
+metadata/_edit_group_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
-layout_mode = 0
-offset_left = -71.0
-offset_right = -8.0
-offset_bottom = 27.0
-scale = Vector2(1.5148, 0.452517)
-max_value = 3.0
-value = 3.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatBed"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fcfvj")
 
-[node name="Food2" parent="." instance=ExtResource("5_fcfvj")]
-position = Vector2(118, 18)
+[node name="Sprite2D" type="Sprite2D" parent="CatBed"]
+texture = ExtResource("3_pa8r4")
 
-[node name="Food3" parent="." instance=ExtResource("5_fcfvj")]
-position = Vector2(217, 80)
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(70, 70)
+script = ExtResource("5_pa8r4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.5, 7.5)
+shape = SubResource("RectangleShape2D_e3sih")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = ExtResource("6_15mv3")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+
+[node name="Food" type="Area2D" parent="." groups=["Food"]]
+position = Vector2(154, 80)
+script = ExtResource("6_pa8r4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Food"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Food"]
+texture = ExtResource("6_fcfvj")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("8_15mv3")
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 1042.0
+offset_top = 26.0
+offset_right = 1082.0
+offset_bottom = 49.0
+text = "Cans "
+
+[node name="ProgressBar" type="TextureProgressBar" parent="UI"]
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 79.0
+offset_bottom = 28.0
+scale = Vector2(2.99335, 3.02395)
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource("10_go7sj")
+texture_over = ExtResource("11_7gny6")
+texture_progress = ExtResource("12_2aecg")
+
+[connection signal="body_entered" from="Food" to="." method="_on_food_body_entered"]
+[connection signal="body_entered" from="Food" to="Food" method="_on_body_entered"]

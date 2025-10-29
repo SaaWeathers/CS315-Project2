@@ -1,7 +1,5 @@
 extends Node
 
-# Singleton (autoload) setup is recommended for easy global access
-# You can add this script to autoload via Project Settings > AutoLoad
 var total_cans = 0
 
 var collected_cans = 0
@@ -11,7 +9,7 @@ var health = 3
 
 
 func _ready():
-	# Optionally, count cans in the scene automatically
+	#count cans in the scene automatically based on how many I add to scene
 	total_cans = get_tree().get_nodes_in_group("Food").size()
 	print("Cans: ", total_cans)
 
@@ -23,3 +21,8 @@ func change_health(amount: int):
 	health -= 1
 	health_bar.value = health
 	print(health)
+
+
+func _on_food_body_entered(body: Node2D) -> void:
+	add_can()
+	pass # Replace with function body.
