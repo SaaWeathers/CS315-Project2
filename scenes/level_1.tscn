@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=19 format=3 uid="uid://duesjq32icvbe"]
 
 [ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scripts/level_1.gd" id="1_4nkto"]
 [ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://floor_tile_set.tres" id="1_5xbjy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bt4tj5vtrkxp5" path="res://assets/food.png" id="6_fcfvj"]
 [ext_resource type="Script" uid="uid://5rjvvhjv226u" path="res://scripts/food.gd" id="6_pa8r4"]
 [ext_resource type="Script" uid="uid://cueq6f1o60ft" path="res://scripts/ui.gd" id="8_15mv3"]
+[ext_resource type="FontFile" uid="uid://c5cbpbh22vquy" path="res://TinyAndChunkyRegular-m2Dz5.ttf" id="10_7gny6"]
 [ext_resource type="Texture2D" uid="uid://b8jvmdjxj585y" path="res://assets/pixil-layer-0.png" id="10_go7sj"]
 [ext_resource type="Texture2D" uid="uid://bntsr52thor4c" path="res://assets/pixil-layer-2.png" id="11_7gny6"]
 [ext_resource type="Texture2D" uid="uid://bnyeyeurgnghu" path="res://assets/pixil-layer-1.png" id="12_2aecg"]
@@ -18,6 +19,12 @@ size = Vector2(50, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3sih"]
 size = Vector2(17, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go7sj"]
+size = Vector2(11, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gny6"]
+size = Vector2(48, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
 size = Vector2(20, 13)
@@ -55,11 +62,6 @@ offset_left = -1152.0
 offset_bottom = 648.0
 color = Color(0.110776, 0.573527, 5.58317e-06, 1)
 
-[node name="Plant1" type="Sprite2D" parent="."]
-position = Vector2(260, -14)
-scale = Vector2(3, 3)
-texture = ExtResource("2_e3sih")
-
 [node name="FirstLayerOfWorld" type="TileMap" parent="."]
 tile_set = ExtResource("1_5xbjy")
 format = 2
@@ -70,7 +72,6 @@ layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 65536, 0, 65539, 65536,
 format = 2
 
 [node name="CatBed" type="Area2D" parent="."]
-visible = false
 position = Vector2(67, 75)
 metadata/_edit_group_ = true
 
@@ -97,6 +98,23 @@ animation = &"idle"
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 
+[node name="Tree" type="StaticBody2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+
+[node name="Plant1" type="Sprite2D" parent="Tree"]
+position = Vector2(261, -14)
+scale = Vector2(3, 3)
+texture = ExtResource("2_e3sih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree"]
+position = Vector2(259.5, 38.5)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_go7sj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tree"]
+position = Vector2(258, 50.5)
+shape = SubResource("RectangleShape2D_7gny6")
+
 [node name="Food" type="Area2D" parent="." groups=["Food"]]
 position = Vector2(154, 80)
 script = ExtResource("6_pa8r4")
@@ -113,16 +131,17 @@ texture = ExtResource("6_fcfvj")
 script = ExtResource("8_15mv3")
 
 [node name="Label" type="Label" parent="UI"]
-offset_left = 1042.0
-offset_top = 26.0
-offset_right = 1082.0
-offset_bottom = 49.0
-text = "Cans "
+offset_left = 141.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("10_7gny6")
+text = ":"
 
 [node name="ProgressBar" type="TextureProgressBar" parent="UI"]
-offset_left = 15.0
+offset_left = 948.0
 offset_top = 10.0
-offset_right = 79.0
+offset_right = 1012.0
 offset_bottom = 28.0
 scale = Vector2(2.99335, 3.02395)
 max_value = 5.0
@@ -130,6 +149,12 @@ value = 5.0
 texture_under = ExtResource("10_go7sj")
 texture_over = ExtResource("11_7gny6")
 texture_progress = ExtResource("12_2aecg")
+
+[node name="Picture of Can" type="Sprite2D" parent="UI"]
+position = Vector2(79, 47)
+rotation = 0.501708
+scale = Vector2(3.227, 3.227)
+texture = ExtResource("6_fcfvj")
 
 [connection signal="body_entered" from="Food" to="." method="_on_food_body_entered"]
 [connection signal="body_entered" from="Food" to="Food" method="_on_body_entered"]
