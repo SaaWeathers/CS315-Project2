@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=26 format=3 uid="uid://duesjq32icvbe"]
 
 [ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scripts/level_1.gd" id="1_4nkto"]
 [ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://tilesets/floor_tile_set.tres" id="1_5xbjy"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b8jvmdjxj585y" path="res://assets/pixil-layer-0.png" id="10_go7sj"]
 [ext_resource type="Texture2D" uid="uid://bntsr52thor4c" path="res://assets/pixil-layer-2.png" id="11_7gny6"]
 [ext_resource type="Texture2D" uid="uid://bnyeyeurgnghu" path="res://assets/pixil-layer-1.png" id="12_2aecg"]
+[ext_resource type="PackedScene" uid="uid://blq6rmpvi7eec" path="res://paused.tscn" id="17_1s4pk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcfvj"]
 size = Vector2(50, 28)
@@ -219,6 +220,9 @@ offset_bottom = 59.0
 scale = Vector2(2.07604, 1.46118)
 theme_override_fonts/font = ExtResource("10_7gny6")
 text = "II"
+
+[node name="Paused" parent="UI" instance=ExtResource("17_1s4pk")]
+visible = false
 
 [connection signal="body_entered" from="CatBed" to="." method="_on_cat_bed_body_entered"]
 [connection signal="body_entered" from="Food" to="." method="_on_food_body_entered"]
