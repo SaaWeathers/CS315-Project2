@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=27 format=3 uid="uid://duesjq32icvbe"]
 
 [ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scripts/level_1.gd" id="1_4nkto"]
 [ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://tilesets/floor_tile_set.tres" id="1_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://bqw8e22a7poys" path="res://assets/Plant1.png" id="2_e3sih"]
 [ext_resource type="Script" uid="uid://d3nyexc7x70ve" path="res://scripts/cat_bed.gd" id="3_2aecg"]
 [ext_resource type="Texture2D" uid="uid://b5mi5jjttpf8p" path="res://assets/CatBedBlue.png" id="3_pa8r4"]
+[ext_resource type="TileSet" uid="uid://ccco3ohj1nnl1" path="res://nature_tile_set.tres" id="3_x2xxo"]
 [ext_resource type="Script" uid="uid://b64hml12qf8t7" path="res://scripts/character_body_2d.gd" id="5_pa8r4"]
 [ext_resource type="SpriteFrames" uid="uid://cqoe6r2p78phe" path="res://new_sprite_frames.tres" id="6_15mv3"]
 [ext_resource type="Texture2D" uid="uid://bt4tj5vtrkxp5" path="res://assets/food.png" id="6_fcfvj"]
@@ -24,6 +25,21 @@ size = Vector2(50, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3sih"]
 size = Vector2(17, 13)
 
+[sub_resource type="Animation" id="Animation_x2xxo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerIndicator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -17)]
+}
+
 [sub_resource type="Animation" id="Animation_1s4pk"]
 resource_name = "player_indicator"
 loop_mode = 1
@@ -38,21 +54,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -17), Vector2(0, -18), Vector2(0, -19), Vector2(0, -19), Vector2(0, -18), Vector2(0, -17)]
-}
-
-[sub_resource type="Animation" id="Animation_x2xxo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerIndicator:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, -17)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2cbcq"]
@@ -109,8 +110,16 @@ format = 2
 layer_0/name = "Floors"
 layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 131073, 0, 1, 196609, 0, 1, 262145, 0, 2, 327681, 0, 3, 393217, 0, 3, 458753, 0, 3, 524289, 0, 5, 589825, 0, 8, 589826, 262144, 8, 589827, 262144, 8, 589828, 262144, 8, 589829, 262144, 8, 589830, 262144, 8, 589831, 262144, 8, 131074, 851968, 5, 131075, 917504, 5, 131076, 917504, 5, 131077, 917504, 5, 131078, 917504, 5, 131079, 917504, 5, 196610, 851968, 6, 262146, 851968, 6, 327682, 851968, 6, 393218, 851968, 6, 458754, 851968, 6, 524290, 851968, 7, 524291, 917504, 7, 524292, 917504, 7, 524293, 917504, 7, 524294, 917504, 7, 524295, 917504, 7, 458755, 917504, 6, 458756, 917504, 6, 458757, 917504, 6, 458758, 917504, 6, 393219, 917504, 6, 393220, 917504, 6, 393221, 917504, 6, 393222, 917504, 6, 327683, 917504, 6, 327684, 917504, 6, 327685, 917504, 6, 327686, 917504, 6, 262147, 917504, 6, 262148, 917504, 6, 262149, 917504, 6, 262150, 917504, 6, 196611, 917504, 6, 196612, 917504, 6, 196613, 983040, 6, 196614, 917504, 6, 196615, 917504, 6, 262151, 917504, 6, 327687, 917504, 6, 393223, 917504, 6, 458759, 917504, 6, 65544, 1114112, 0, 131080, 1114112, 1, 196616, 1114112, 1, 393224, 1114112, 2, 458760, 1114112, 2, 524296, 1114112, 2)
 
-[node name="Furniture" type="TileMap" parent="."]
+[node name="Nature" type="TileMap" parent="."]
+position = Vector2(-3, -1)
+scale = Vector2(1.9, 1.9)
+tile_set = ExtResource("3_x2xxo")
 format = 2
+layer_0/tile_data = PackedInt32Array(262151, 65536, 3, 262152, 131072, 3, 196616, 131072, 2, 196615, 65536, 2, 131080, 131072, 1, 131079, 65536, 1, 65543, 65536, 0, 65544, 65540, 3, 262150, 131076, 3, 131078, 0, 1, 393220, 65540, 3, 393221, 131076, 3, 393224, 65540, 3, 393225, 131076, 3, 327686, 65540, 3, 327687, 131076, 3, 65541, 65540, 3, 65542, 131076, 3, 6, 65540, 3, 7, 131076, 3, -65530, 65540, 3, -65529, 131076, 3, -65535, 65540, 3, -131071, 65540, 3, -131070, 131076, 3, -131069, 65540, 3, -131068, 131076, 3, -65538, 65540, 3, -65537, 131076, 3, -196609, 65540, 3, -262144, 65540, 3, -262143, 131076, 3, -196603, 65540, 3, -196602, 131076, 3, -65532, 65540, 3, -65531, 131076, 3, 131070, 65540, 3, 131071, 131076, 3, 327679, 65540, 3, 262144, 131076, 3, 196603, 65540, 3, 196604, 131076, 3, 196618, 65540, 3, 196619, 131076, 3, 10, 65540, 3, 11, 131076, 3, -65528, 65540, 3, -65527, 131076, 3, 65547, 65540, 3, 65548, 131076, 3, 65545, 131076, 3, -131061, 65540, 3, -131060, 131076, 3, 262157, 65540, 3, 262158, 131076, 3, 262155, 65540, 3, 262156, 131076, 3, 458758, 65540, 3, 458759, 131076, 3, 393217, 65540, 3, 393218, 131076, 3, 458751, 65540, 3, 393216, 131076, 3, 524284, 65540, 3, 524285, 131076, 3, 327676, 65540, 3, 327677, 131076, 3, 393210, 65540, 3, 393211, 131076, 3, 393213, 65540, 3, 393214, 131076, 3, 524288, 65540, 3, 524289, 131076, 3, 524291, 65540, 3, 524292, 131076, 3, 589829, 65540, 3, 589830, 131076, 3, 589831, 65540, 3, 589832, 131076, 3, 589835, 65540, 3, 589836, 131076, 3, 393226, 65540, 3, 393227, 131076, 3, 524297, 65540, 3, 524298, 131076, 3, 524301, 65540, 3, 524302, 131076, 3, 262153, 65540, 3, 262154, 131076, 3, 262149, 65540, 3, 196601, 65540, 3, 196602, 131076, 3, 458744, 65540, 3, 458745, 131076, 3, 655354, 65540, 3, 655355, 131076, 3, 655358, 65540, 3, 655359, 131076, 3, 524281, 65540, 3, 524282, 131076, 3, 720898, 65540, 3, 720899, 131076, 3, 458747, 65540, 3, 458748, 131076, 3, 262142, 131075, 3, 262141, 65539, 3, 196605, 65539, 2, 196606, 131075, 2)
+layer_1/name = "Layer1"
+layer_1/tile_data = PackedInt32Array(393221, 65539, 3, 393222, 131075, 3, 327685, 65539, 2, 327686, 131075, 2, -131066, 65539, 2, -131065, 131075, 2, -65530, 65539, 3, -65529, 131075, 3, -65532, 131075, 3, -131069, 65539, 2, -131068, 131075, 2, -65533, 65539, 3)
+layer_2/name = "Layer2"
+layer_2/y_sort_enabled = true
 
 [node name="CatBed" type="Area2D" parent="." groups=["Bed"]]
 position = Vector2(67, 75)
@@ -151,6 +160,7 @@ libraries = {
 autoplay = "player_indicator"
 
 [node name="Tree" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(0, 9.53674e-07)
 
 [node name="Plant1" type="Sprite2D" parent="Tree"]
@@ -223,6 +233,12 @@ text = "II"
 
 [node name="Paused" parent="UI" instance=ExtResource("17_1s4pk")]
 visible = false
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
 
 [connection signal="body_entered" from="CatBed" to="." method="_on_cat_bed_body_entered"]
 [connection signal="body_entered" from="Food" to="." method="_on_food_body_entered"]
