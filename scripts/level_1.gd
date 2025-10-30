@@ -29,9 +29,19 @@ func _process(delta: float) -> void:
 			print("change level")
 			level_change()
 
-
+#only works when cat is in the bed
+func level_change():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	
+	
+#THESE FUNCTIONS ALL ARE FOR CANS
 #cans is also just the food, in code its cans, but in the nodes and groups its food
-#THESE 3 FUNCTIONS ALL ARE TO CALCULATE CANS
+func _on_food_body_entered(body: Node2D) -> void:
+	add_cans()
+	change_cans_left()
+	$Food/Meow.play()
+	pass
+
 func add_cans():
 	collected_cans += 1
 	print("Cans collected: %d / %d" % [collected_cans, total_cans])
@@ -51,16 +61,8 @@ func change_health():
 	health_bar.value = health
 	print(health)
 
-#only works when cat is in the bed
-func level_change():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	
 
-func _on_food_body_entered(body: Node2D) -> void:
-	add_cans()
-	change_cans_left()
-	$Food/Meow.play()
-	pass
+
 
 func _on_cat_bed_body_entered(body: Node2D) -> void:
 	print("you are in bed")

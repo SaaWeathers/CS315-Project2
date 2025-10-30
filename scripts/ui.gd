@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pause_pressed() -> void:
-	get_tree().current_scene.paused
+	get_node("Paused").show()
 	pass # Replace with function body.
