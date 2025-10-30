@@ -8,31 +8,42 @@ var health = 5
 @onready var cans_left = $"UI/Number of cans"
 
 var in_bed = false
-var temp_cans = total_cans
+var temp_cans = 0
 
 func _ready() -> void:
 	#count cans in the scene automatically based on how many I add to scene
 	total_cans = get_tree().get_nodes_in_group("Food").size()
 	print("Cans: ", total_cans)
+	
+	#gives value of total cans to temp_cans
+	#now when we collect a can it will take away from temp instead of total 
+	temp_cans = total_cans
+	update_cans_label()
 
 func _process(delta: float) -> void:
 	
-	cans_left.text = ": %d" % [temp_cans]
-	
+	#if player is in the bed, and they have all cans and they press e, then it will run
+	#only here because it was being weird in the on_cat_bed function so i put it here
+	#since it is something that needs to be constantly checked for
 	if Input.is_action_pressed("use") and in_bed == true and collected_cans == total_cans:
 			print("change level")
 			level_change()
 
 
-
+#cans is also just the food, in code its cans, but in the nodes and groups its food
+#THESE 3 FUNCTIONS ALL ARE TO CALCULATE CANS
 func add_cans():
 	collected_cans += 1
 	print("Cans collected: %d / %d" % [collected_cans, total_cans])
 
 func change_cans_left():
 	temp_cans -= 1
-	print(cans_left)
-	cans_left.text = ": %d" % [total_cans]
+	update_cans_label()
+	print(temp_cans)
+	
+func update_cans_label():
+	cans_left.text = ": %d" % [temp_cans]
+	
 	
 #for when the cat runs into things that hurt it
 func change_health():
@@ -50,7 +61,6 @@ func _on_food_body_entered(body: Node2D) -> void:
 	change_cans_left()
 	$Food/Meow.play()
 	pass
-
 
 func _on_cat_bed_body_entered(body: Node2D) -> void:
 	print("you are in bed")
