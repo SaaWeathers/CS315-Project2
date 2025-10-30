@@ -1,14 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=21 format=3 uid="uid://duesjq32icvbe"]
 
 [ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scripts/level_1.gd" id="1_4nkto"]
 [ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://floor_tile_set.tres" id="1_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://bqw8e22a7poys" path="res://assets/Plant1.png" id="2_e3sih"]
+[ext_resource type="Script" uid="uid://d3nyexc7x70ve" path="res://scripts/cat_bed.gd" id="3_2aecg"]
 [ext_resource type="Texture2D" uid="uid://b5mi5jjttpf8p" path="res://assets/CatBedBlue.png" id="3_pa8r4"]
 [ext_resource type="Script" uid="uid://b64hml12qf8t7" path="res://scripts/character_body_2d.gd" id="5_pa8r4"]
 [ext_resource type="SpriteFrames" uid="uid://cqoe6r2p78phe" path="res://new_sprite_frames.tres" id="6_15mv3"]
 [ext_resource type="Texture2D" uid="uid://bt4tj5vtrkxp5" path="res://assets/food.png" id="6_fcfvj"]
 [ext_resource type="Script" uid="uid://5rjvvhjv226u" path="res://scripts/food.gd" id="6_pa8r4"]
 [ext_resource type="Script" uid="uid://cueq6f1o60ft" path="res://scripts/ui.gd" id="8_15mv3"]
+[ext_resource type="AudioStream" uid="uid://duepso6v1s2y1" path="res://audio/meow-sfx-405456.mp3" id="10_6dial"]
 [ext_resource type="FontFile" uid="uid://c5cbpbh22vquy" path="res://TinyAndChunkyRegular-m2Dz5.ttf" id="10_7gny6"]
 [ext_resource type="Texture2D" uid="uid://b8jvmdjxj585y" path="res://assets/pixil-layer-0.png" id="10_go7sj"]
 [ext_resource type="Texture2D" uid="uid://bntsr52thor4c" path="res://assets/pixil-layer-2.png" id="11_7gny6"]
@@ -71,8 +73,9 @@ layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 65536, 0, 65539, 65536,
 [node name="Furniture" type="TileMap" parent="."]
 format = 2
 
-[node name="CatBed" type="Area2D" parent="."]
+[node name="CatBed" type="Area2D" parent="." groups=["Bed"]]
 position = Vector2(67, 75)
+script = ExtResource("3_2aecg")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatBed"]
@@ -127,10 +130,13 @@ shape = SubResource("RectangleShape2D_pa8r4")
 [node name="Sprite2D" type="Sprite2D" parent="Food"]
 texture = ExtResource("6_fcfvj")
 
+[node name="Meow" type="AudioStreamPlayer2D" parent="Food"]
+stream = ExtResource("10_6dial")
+
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("8_15mv3")
 
-[node name="Label" type="Label" parent="UI"]
+[node name="Number of cans" type="Label" parent="UI"]
 offset_left = 141.0
 offset_top = 40.0
 offset_right = 300.0
@@ -156,5 +162,6 @@ rotation = 0.501708
 scale = Vector2(3.227, 3.227)
 texture = ExtResource("6_fcfvj")
 
+[connection signal="body_entered" from="CatBed" to="." method="_on_cat_bed_body_entered"]
 [connection signal="body_entered" from="Food" to="." method="_on_food_body_entered"]
 [connection signal="body_entered" from="Food" to="Food" method="_on_body_entered"]
