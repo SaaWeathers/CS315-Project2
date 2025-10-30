@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cua4j2rlhbitf"
-path="res://.godot/imported/black_cat_walking.png-a020999a16fee77da3f938d352a65a3e.ctex"
+uid="uid://dyp3o01qkrnax"
+path="res://.godot/imported/player indicator.png-ac315dd99ac5be3eee7b8bacf22c723f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/black_cat_walking.png"
-dest_files=["res://.godot/imported/black_cat_walking.png-a020999a16fee77da3f938d352a65a3e.ctex"]
+source_file="res://assets/player indicator.png"
+dest_files=["res://.godot/imported/player indicator.png-ac315dd99ac5be3eee7b8bacf22c723f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df5fd507dw8kt"
-path="res://.godot/imported/JumpCabt.png-7fb32c206716afe3940640dd8d824899.ctex"
+uid="uid://cua4j2rlhbitf"
+path="res://.godot/imported/black_cat_walking.png-3ed1268cc247c2fec660de5134ec3f45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/JumpCabt.png"
-dest_files=["res://.godot/imported/JumpCabt.png-7fb32c206716afe3940640dd8d824899.ctex"]
+source_file="res://assets/sprites/black_cat_walking.png"
+dest_files=["res://.godot/imported/black_cat_walking.png-3ed1268cc247c2fec660de5134ec3f45.ctex"]
 
 [params]
 

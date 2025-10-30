@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=25 format=3 uid="uid://duesjq32icvbe"]
 
 [ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scripts/level_1.gd" id="1_4nkto"]
-[ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://floor_tile_set.tres" id="1_5xbjy"]
+[ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://tilesets/floor_tile_set.tres" id="1_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://bqw8e22a7poys" path="res://assets/Plant1.png" id="2_e3sih"]
 [ext_resource type="Script" uid="uid://d3nyexc7x70ve" path="res://scripts/cat_bed.gd" id="3_2aecg"]
 [ext_resource type="Texture2D" uid="uid://b5mi5jjttpf8p" path="res://assets/CatBedBlue.png" id="3_pa8r4"]
@@ -9,9 +9,10 @@
 [ext_resource type="SpriteFrames" uid="uid://cqoe6r2p78phe" path="res://new_sprite_frames.tres" id="6_15mv3"]
 [ext_resource type="Texture2D" uid="uid://bt4tj5vtrkxp5" path="res://assets/food.png" id="6_fcfvj"]
 [ext_resource type="Script" uid="uid://5rjvvhjv226u" path="res://scripts/food.gd" id="6_pa8r4"]
+[ext_resource type="Texture2D" uid="uid://dyp3o01qkrnax" path="res://assets/player indicator.png" id="7_7nomh"]
 [ext_resource type="Script" uid="uid://cueq6f1o60ft" path="res://scripts/ui.gd" id="8_15mv3"]
 [ext_resource type="AudioStream" uid="uid://duepso6v1s2y1" path="res://audio/meow-sfx-405456.mp3" id="10_6dial"]
-[ext_resource type="FontFile" uid="uid://c5cbpbh22vquy" path="res://TinyAndChunkyRegular-m2Dz5.ttf" id="10_7gny6"]
+[ext_resource type="FontFile" uid="uid://c5cbpbh22vquy" path="res://fonts/TinyAndChunkyRegular-m2Dz5.ttf" id="10_7gny6"]
 [ext_resource type="Texture2D" uid="uid://b8jvmdjxj585y" path="res://assets/pixil-layer-0.png" id="10_go7sj"]
 [ext_resource type="Texture2D" uid="uid://bntsr52thor4c" path="res://assets/pixil-layer-2.png" id="11_7gny6"]
 [ext_resource type="Texture2D" uid="uid://bnyeyeurgnghu" path="res://assets/pixil-layer-1.png" id="12_2aecg"]
@@ -21,6 +22,43 @@ size = Vector2(50, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3sih"]
 size = Vector2(17, 13)
+
+[sub_resource type="Animation" id="Animation_1s4pk"]
+resource_name = "player_indicator"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerIndicator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -17), Vector2(0, -18), Vector2(0, -19), Vector2(0, -19), Vector2(0, -18), Vector2(0, -17)]
+}
+
+[sub_resource type="Animation" id="Animation_x2xxo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerIndicator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -17)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cbcq"]
+_data = {
+&"RESET": SubResource("Animation_x2xxo"),
+&"player_indicator": SubResource("Animation_1s4pk")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go7sj"]
 size = Vector2(11, 13)
@@ -100,6 +138,16 @@ animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
+
+[node name="PlayerIndicator" type="Sprite2D" parent="Player"]
+position = Vector2(-1, -17)
+texture = ExtResource("7_7nomh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+&"": SubResource("AnimationLibrary_2cbcq")
+}
+autoplay = "player_indicator"
 
 [node name="Tree" type="StaticBody2D" parent="."]
 position = Vector2(0, 9.53674e-07)

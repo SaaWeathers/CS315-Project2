@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c5cbpbh22vquy"
-path="res://.godot/imported/TinyAndChunkyRegular-m2Dz5.ttf-ec8ef407324045abcf321495a141e2cf.fontdata"
+path="res://.godot/imported/TinyAndChunkyRegular-m2Dz5.ttf-eed00c2940d2b23cbd8ad48acbf0c22f.fontdata"
 
 [deps]
 
-source_file="res://TinyAndChunkyRegular-m2Dz5.ttf"
-dest_files=["res://.godot/imported/TinyAndChunkyRegular-m2Dz5.ttf-ec8ef407324045abcf321495a141e2cf.fontdata"]
+source_file="res://fonts/TinyAndChunkyRegular-m2Dz5.ttf"
+dest_files=["res://.godot/imported/TinyAndChunkyRegular-m2Dz5.ttf-eed00c2940d2b23cbd8ad48acbf0c22f.fontdata"]
 
 [params]
 

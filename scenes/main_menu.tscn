@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://w1c0fjvjkncn" path="res://scripts/main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://hyfpcatvypnn" path="res://assets/main menu bg 2.png" id="2_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://buteaqetk6prs" path="res://audio/kxn - project 2 (main menu).mp3" id="3_bqqt6"]
-[ext_resource type="FontFile" uid="uid://c5cbpbh22vquy" path="res://TinyAndChunkyRegular-m2Dz5.ttf" id="3_wu84c"]
+[ext_resource type="FontFile" uid="uid://c5cbpbh22vquy" path="res://fonts/TinyAndChunkyRegular-m2Dz5.ttf" id="3_wu84c"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
