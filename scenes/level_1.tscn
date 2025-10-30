@@ -195,9 +195,9 @@ text = ":"
 
 [node name="ProgressBar" type="TextureProgressBar" parent="UI"]
 offset_left = 948.0
-offset_top = 10.0
+offset_top = 29.0
 offset_right = 1012.0
-offset_bottom = 28.0
+offset_bottom = 47.0
 scale = Vector2(2.99335, 3.02395)
 max_value = 5.0
 value = 5.0
@@ -211,6 +211,16 @@ rotation = 0.501708
 scale = Vector2(3.227, 3.227)
 texture = ExtResource("6_fcfvj")
 
+[node name="Pause" type="Button" parent="UI"]
+offset_left = 542.0
+offset_top = 22.0
+offset_right = 574.0
+offset_bottom = 59.0
+scale = Vector2(2.07604, 1.46118)
+theme_override_fonts/font = ExtResource("10_7gny6")
+text = "II"
+
 [connection signal="body_entered" from="CatBed" to="." method="_on_cat_bed_body_entered"]
 [connection signal="body_entered" from="Food" to="." method="_on_food_body_entered"]
 [connection signal="body_entered" from="Food" to="Food" method="_on_body_entered"]
+[connection signal="pressed" from="UI/Pause" to="UI" method="_on_pause_pressed"]

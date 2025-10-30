@@ -9,4 +9,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	
 	pass
+
+func _on_pause_pressed() -> void:
+	get_tree().current_scene.paused
+	pass # Replace with function body.
