@@ -39,7 +39,6 @@ func level_change():
 func _on_food_body_entered(body: Node2D) -> void:
 	add_cans()
 	change_cans_left()
-	$Food/Meow.play()
 	pass
 
 func add_cans():

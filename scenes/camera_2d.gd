@@ -15,3 +15,6 @@ func _process(delta: float) -> void:
 		shake_strength = lerp(shake_strength, 0.0, shake_fade * delta)
 		offset = Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
 	pass
+
+func when_dead():
+	self.position = get_parent().position

@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 
 func detect_death():
 	print("you died")
+	get_child(2).when_dead()
 	self.queue_free()
 	pass
 	
