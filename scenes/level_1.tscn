@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://duesjq32icvbe"]
+[gd_scene load_steps=31 format=3 uid="uid://duesjq32icvbe"]
 
 [ext_resource type="Script" uid="uid://bonf18biyogkl" path="res://scripts/level_1.gd" id="1_4nkto"]
 [ext_resource type="TileSet" uid="uid://irpcshixqil8" path="res://tilesets/floor_tile_set.tres" id="1_5xbjy"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://5rjvvhjv226u" path="res://scripts/food.gd" id="6_pa8r4"]
 [ext_resource type="Texture2D" uid="uid://dyp3o01qkrnax" path="res://assets/player indicator.png" id="7_7nomh"]
 [ext_resource type="Script" uid="uid://cueq6f1o60ft" path="res://scripts/ui.gd" id="8_15mv3"]
+[ext_resource type="Script" uid="uid://df8gndmop2kts" path="res://scenes/camera_2d.gd" id="8_so66j"]
 [ext_resource type="AudioStream" uid="uid://duepso6v1s2y1" path="res://audio/meow-sfx-405456.mp3" id="10_6dial"]
 [ext_resource type="FontFile" uid="uid://c5cbpbh22vquy" path="res://fonts/TinyAndChunkyRegular-m2Dz5.ttf" id="10_7gny6"]
 [ext_resource type="Texture2D" uid="uid://b8jvmdjxj585y" path="res://assets/pixil-layer-0.png" id="10_go7sj"]
@@ -151,8 +152,9 @@ shape = SubResource("RectangleShape2D_e3sih")
 sprite_frames = ExtResource("6_15mv3")
 animation = &"idle"
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["Camera"]]
 zoom = Vector2(2, 2)
+script = ExtResource("8_so66j")
 
 [node name="PlayerIndicator" type="Sprite2D" parent="Player"]
 position = Vector2(-1, -17)

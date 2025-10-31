@@ -24,6 +24,7 @@ window/stretch/mode="canvas_items"
 
 Food=""
 Bed=""
+Camera=""
 
 [input]
 
