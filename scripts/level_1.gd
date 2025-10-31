@@ -60,9 +60,9 @@ func change_health():
 	health -= 1
 	health_bar.value = health
 	print(health)
-
-
-
+	
+	if health <=- 0:
+		get_child(4).detect_death()
 
 func _on_cat_bed_body_entered(body: Node2D) -> void:
 	print("you are in bed")
@@ -70,4 +70,10 @@ func _on_cat_bed_body_entered(body: Node2D) -> void:
 	
 	if collected_cans == total_cans:
 			print("you have the right amount of cans")
+	pass # Replace with function body.
+
+
+func _on_enemy_body_entered(body: Node2D) -> void:
+	change_health()
+	
 	pass # Replace with function body.

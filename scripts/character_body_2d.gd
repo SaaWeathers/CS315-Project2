@@ -5,7 +5,6 @@ const SPEED = 100.0
 
 @export var facing = 1
 
-
 func _physics_process(delta: float) -> void:
 	
 
@@ -29,5 +28,8 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 		pass
 	
-
 	move_and_slide()
+
+func detect_death():
+	print("you died")
+	pass
