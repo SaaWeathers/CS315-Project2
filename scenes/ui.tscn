@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://cje8eybt4hrg1"]
+
+[ext_resource type="Script" uid="uid://cueq6f1o60ft" path="res://scripts/ui.gd" id="1_p7vwb"]
+[ext_resource type="FontFile" uid="uid://c5cbpbh22vquy" path="res://fonts/TinyAndChunkyRegular-m2Dz5.ttf" id="2_ktti3"]
+[ext_resource type="Texture2D" uid="uid://btjm8ob6t6ieq" path="res://assets/heart_empty.png" id="3_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://crcyt2somfxi5" path="res://assets/heart_outline.png" id="4_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://b3ntwa0ktvpfd" path="res://assets/heart_full.png" id="5_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://bt4tj5vtrkxp5" path="res://assets/food.png" id="6_6rmj2"]
+[ext_resource type="PackedScene" uid="uid://blq6rmpvi7eec" path="res://paused.tscn" id="7_vsj0x"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_p7vwb")
+
+[node name="Number of cans" type="Label" parent="."]
+offset_left = 139.0
+offset_top = 21.0
+offset_right = 298.0
+offset_bottom = 44.0
+scale = Vector2(2.18118, 2.08384)
+theme_override_fonts/font = ExtResource("2_ktti3")
+text = ":"
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 948.0
+offset_top = 29.0
+offset_right = 1012.0
+offset_bottom = 47.0
+scale = Vector2(2.99335, 3.02395)
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource("3_cgfq5")
+texture_over = ExtResource("4_7dvkv")
+texture_progress = ExtResource("5_vdcm2")
+
+[node name="Picture of Can" type="Sprite2D" parent="."]
+position = Vector2(79, 47)
+rotation = 0.501708
+scale = Vector2(3.227, 3.227)
+texture = ExtResource("6_6rmj2")
+
+[node name="Paused" parent="." instance=ExtResource("7_vsj0x")]
+visible = false

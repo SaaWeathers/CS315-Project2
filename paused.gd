@@ -31,6 +31,7 @@ func _on_resume_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
+	resume()
 	pass # Replace with function body.
 
 func _on_quit_pressed() -> void:

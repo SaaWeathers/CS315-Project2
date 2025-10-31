@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 
 #only works when cat is in the bed
 func level_change():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_2.tscn")
 	
 	
 #THESE FUNCTIONS ALL ARE FOR CANS

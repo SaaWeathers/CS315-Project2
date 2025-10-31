@@ -22,9 +22,9 @@ window/stretch/mode="canvas_items"
 
 [global_group]
 
-Food=""
 Bed=""
 Camera=""
+Food=""
 
 [input]
 
